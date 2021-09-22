@@ -101,8 +101,8 @@ class UserPlaceFragment : Fragment(), AndroidScopeComponent {
             topBar = { AppBar(isEdit) },
         ) {
             if (isEdit.value) {
-                val userCatches by viewModel.getCatchesByMarkerId(viewModel.marker.value.id).collectAsState(
-                    listOf())
+                val userCatches by viewModel.getCatchesByMarkerId(viewModel.marker.value.id)
+                    .collectAsState(listOf())
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -117,7 +117,8 @@ class UserPlaceFragment : Fragment(), AndroidScopeComponent {
                     Catches(userCatches)
                 }
             } else {
-                val userCatches by viewModel.getCatchesByMarkerId(viewModel.marker.value.id).collectAsState(listOf())
+                val userCatches by viewModel.getCatchesByMarkerId(viewModel.marker.value.id)
+                    .collectAsState(listOf())
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -131,7 +132,6 @@ class UserPlaceFragment : Fragment(), AndroidScopeComponent {
                     }
                     Catches(userCatches)
                 }
-                Catches(userCatches)
             }
         }
     }
@@ -230,8 +230,8 @@ class UserPlaceFragment : Fragment(), AndroidScopeComponent {
                     Spacer(modifier = Modifier.width(150.dp))
                     UserProfile(user)
                 }
-                Text(viewModel.title, fontWeight = FontWeight.Bold)
-                Text(viewModel.description ?: "Нет описания")
+                Text(viewModel.marker.value.title, fontWeight = FontWeight.Bold)
+                Text(viewModel.marker.value.description ?: "Нет описания")
                 Spacer(modifier = Modifier.size(8.dp))
             }
         }
@@ -263,10 +263,10 @@ class UserPlaceFragment : Fragment(), AndroidScopeComponent {
                 }
 
                 viewModel.titleTemp = rememberSaveable {
-                    mutableStateOf(viewModel.title)
+                    mutableStateOf(viewModel.marker.value.title)
                 }
                 viewModel.descriptionTemp = rememberSaveable {
-                    mutableStateOf(viewModel.description ?: "")
+                    mutableStateOf(viewModel.marker.value.description ?: "")
                 }
                 OutlinedTextField(
                     value = viewModel.titleTemp.value,
@@ -423,8 +423,8 @@ class UserPlaceFragment : Fragment(), AndroidScopeComponent {
     @Composable
     fun DeleteDialog(dialogOnDelete: MutableState<Boolean>) {
         AlertDialog(
-            title = {Text("Удаление точки")},
-            text = {Text("Вы уверены, что хотите удалить данную точку?")},
+            title = { Text("Удаление точки") },
+            text = { Text("Вы уверены, что хотите удалить данную точку?") },
             onDismissRequest = { dialogOnDelete.value = false },
             confirmButton = {
                 OutlinedButton(

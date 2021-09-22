@@ -23,4 +23,6 @@ interface UserContentRepository {
     suspend fun deleteMarker(userMapMarker: UserMapMarker)
     suspend fun deleteCatch(userCatch: UserCatch)
     suspend fun addNewMarker(newMarker: RawMapMarker): StateFlow<Progress>
+
+
 }
