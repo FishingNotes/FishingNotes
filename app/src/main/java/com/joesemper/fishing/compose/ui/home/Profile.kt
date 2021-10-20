@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.More
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -53,20 +54,13 @@ fun Profile(navController: NavController, modifier: Modifier = Modifier) {
 
     val uiState = viewModel.uiState
     Scaffold(
-        topBar = { /*AppBar(navController)*/ },
+        topBar = { ProfileAppBar(navController) },
         content = {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxSize(),
             ) {
-                /*Card(
-                    elevation = 10.dp,
-                    modifier = Modifier.padding(25.dp),
-                    shape = RoundedCornerShape(25.dp),
-                    backgroundColor = MaterialTheme.colors.surface
-                ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {*/
                         val user by viewModel.getCurrentUser().collectAsState(null)
                         UserInfo(user)
 
@@ -85,7 +79,10 @@ fun Profile(navController: NavController, modifier: Modifier = Modifier) {
 fun UserStats(userPlacesNum: List<MapMarker>?, userCatchesNum: List<UserCatch>?) {
     Row(
         horizontalArrangement = Arrangement.SpaceEvenly,
-        modifier = Modifier.padding(5.dp).fillMaxWidth().height(50.dp)
+        modifier = Modifier
+            .padding(5.dp)
+            .fillMaxWidth()
+            .height(50.dp)
     ) {
         PlacesNumber(userPlacesNum)
         CatchesNumber(userCatchesNum)
@@ -112,13 +109,17 @@ fun PlacesNumber(userPlacesNum: List<MapMarker>?) {
     ) {
         Icon(
             Icons.Default.Place, stringResource(R.string.place),
-            modifier = Modifier.size(25.dp).shimmer(),
+            modifier = Modifier
+                .size(25.dp)
+                .shimmer(),
             tint = Color.LightGray
         )
         Text(
             "0",
             color = Color.LightGray,
-            modifier = Modifier.background(Color.LightGray).shimmer()
+            modifier = Modifier
+                .background(Color.LightGray)
+                .shimmer()
         )
     }
 
@@ -144,13 +145,17 @@ fun CatchesNumber(userCatchesNum: List<UserCatch>?) {
     ) {
         Icon(
             painterResource(R.drawable.ic_fishing), stringResource(R.string.place),
-            modifier = Modifier.size(25.dp).shimmer(),
+            modifier = Modifier
+                .size(25.dp)
+                .shimmer(),
             tint = Color.LightGray
         )
         Text(
             "0",
             color = Color.LightGray,
-            modifier = Modifier.background(Color.LightGray).shimmer()
+            modifier = Modifier
+                .background(Color.LightGray)
+                .shimmer()
         )
     }
 }
@@ -162,7 +167,9 @@ fun UserButtons() {
     val dialogOnLogout = rememberSaveable { mutableStateOf(false) }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().padding(horizontal = 80.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 80.dp),
         verticalArrangement = Arrangement.spacedBy(15.dp, Alignment.Bottom)
     ) {
         ColumnButton(painterResource(R.drawable.ic_friends), stringResource(R.string.friends)) {
@@ -247,7 +254,10 @@ fun UserInfo(user: User?) {
             UserNameAndImage(animatedUser)
         }
     } ?: Row(
-        modifier = Modifier.fillMaxWidth().height(150.dp).padding(20.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(150.dp)
+            .padding(20.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -276,7 +286,7 @@ fun UserNameAndImage(user: User) {
             contentDescription = stringResource(R.string.fisher),
             modifier = Modifier.size(130.dp),
         )
-        Spacer(modifier = Modifier.size(6.dp))
+        Spacer(modifier = Modifier.size(12.dp))
         Text(
             text = when (user.isAnonymous) {
                 true -> stringResource(R.string.anonymous)
@@ -288,9 +298,9 @@ fun UserNameAndImage(user: User) {
 }
 
 @Composable
-fun AppBar(navController: NavController) {
+fun ProfileAppBar(navController: NavController) {
         TopAppBar(
-            title = { Text(text = "User") },
+            title = { /*Text(text = "User")*/ },
             navigationIcon = {
                 IconButton(onClick = { navController.popBackStack() }) {
                     Icon(
@@ -299,7 +309,15 @@ fun AppBar(navController: NavController) {
                     )
                 }
             },
-            elevation = 2.dp
+            actions = {
+                IconButton(onClick = {  }) {
+                    Icon(
+                        imageVector = Icons.Filled.More,
+                        contentDescription = stringResource(R.string.more)
+                    )
+                }
+            },
+            elevation = 0.dp, backgroundColor = Color.White
         )
 }
 

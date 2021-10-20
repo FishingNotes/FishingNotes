@@ -129,6 +129,7 @@
     <string name="cant_get_current_location">Can\'t get current location</string>
     <string name="my_location">Моё местоположение</string>
     <string name="layers">Слои</string>
+    <string name="more">Ещё</string>
 
 
 </resources>
