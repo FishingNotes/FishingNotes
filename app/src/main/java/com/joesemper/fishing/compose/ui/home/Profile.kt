@@ -53,29 +53,29 @@ fun Profile(navController: NavController, modifier: Modifier = Modifier) {
 
     val uiState = viewModel.uiState
     Scaffold(
-        topBar = { AppBar(navController) },
+        topBar = { /*AppBar(navController)*/ },
         content = {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.SpaceAround,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Card(
+                /*Card(
                     elevation = 10.dp,
                     modifier = Modifier.padding(25.dp),
                     shape = RoundedCornerShape(25.dp),
                     backgroundColor = MaterialTheme.colors.surface
                 ) {
-                    Column() {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {*/
                         val user by viewModel.getCurrentUser().collectAsState(null)
                         UserInfo(user)
 
                         val userPlacesNum by viewModel.getUserPlaces().collectAsState(null)
                         val userCatchesNum by viewModel.getUserCatches().collectAsState(null)
                         UserStats(userPlacesNum, userCatchesNum)
-                    }
+                    //}
 
-                }
+                //}
                 UserButtons()
             }
         })
@@ -259,10 +259,9 @@ fun UserInfo(user: User?) {
 @ExperimentalCoilApi
 @Composable
 fun UserNameAndImage(user: User) {
-    Row(
-        modifier = Modifier.fillMaxWidth().height(150.dp).padding(20.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+    Column(
+        modifier = Modifier.wrapContentSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
             painter = if (user.userPic.isNullOrEmpty() or user.isAnonymous)
@@ -275,8 +274,9 @@ fun UserNameAndImage(user: User) {
                 }
             ),
             contentDescription = stringResource(R.string.fisher),
-            modifier = Modifier.size(125.dp),
+            modifier = Modifier.size(130.dp),
         )
+        Spacer(modifier = Modifier.size(6.dp))
         Text(
             text = when (user.isAnonymous) {
                 true -> stringResource(R.string.anonymous)
