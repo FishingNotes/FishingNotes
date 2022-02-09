@@ -36,7 +36,8 @@ import com.alorma.compose.settings.storage.base.rememberBooleanSettingState
 import com.alorma.compose.settings.ui.SettingsCheckbox
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.libraries.maps.model.LatLng
+/*import com.google.android.gms.maps.model.LatLng*/
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import com.mobileprism.fishing.R

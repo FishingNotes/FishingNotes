@@ -36,10 +36,14 @@ import androidx.navigation.NavController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionsRequired
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import com.google.android.gms.maps.MapView
+import com.google.android.libraries.maps.MapView
+import com.google.android.libraries.maps.model.BitmapDescriptorFactory
+import com.google.android.libraries.maps.model.LatLng
+import com.google.android.libraries.maps.model.MarkerOptions
+/*import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.MarkerOptions*/
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import com.google.maps.android.ktx.awaitMap

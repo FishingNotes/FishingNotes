@@ -26,7 +26,7 @@ object Libs {
 
         //Google maps distance between two latlng /*0.4.4*/
         const val mapUtils = "com.google.maps.android:android-maps-utils:2.3.0"
-
+        const val mapUtilsOld = "com.google.maps.android:maps-v3-ktx:3.3.0"
     }
 
     object PlayServices {

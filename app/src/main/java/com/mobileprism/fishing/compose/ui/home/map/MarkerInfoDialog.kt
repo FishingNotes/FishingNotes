@@ -24,7 +24,8 @@ import androidx.compose.ui.zIndex
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.libraries.maps.model.LatLng
+/*import com.google.android.gms.maps.model.LatLng*/
 import com.google.maps.android.SphericalUtil
 import com.mobileprism.fishing.R
 import com.mobileprism.fishing.model.datastore.WeatherPreferences

@@ -6,7 +6,8 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.libraries.maps.model.LatLng
+/*import com.google.android.gms.maps.model.LatLng*/
 import com.mobileprism.fishing.compose.ui.home.UiState
 import com.mobileprism.fishing.compose.ui.home.map.CameraMoveState
 import com.mobileprism.fishing.compose.ui.home.map.MapUiState

@@ -30,14 +30,14 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.MultiplePermissionsState
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.GoogleMapOptions
-import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
 
 import com.google.android.gms.tasks.Task
+import com.google.android.libraries.maps.CameraUpdateFactory
+import com.google.android.libraries.maps.GoogleMap
+import com.google.android.libraries.maps.GoogleMapOptions
+import com.google.android.libraries.maps.MapView
+import com.google.android.libraries.maps.model.CameraPosition
+import com.google.android.libraries.maps.model.LatLng
 import com.google.maps.android.ktx.awaitMap
 import com.mobileprism.fishing.R
 import com.mobileprism.fishing.compose.ui.MainActivity
